@@ -1,16 +1,15 @@
 import React from 'react';
-// import ReactDOM from 'react-dom'; The new way to import createRoot:
-import { createRoot } from "react-dom/client";
-import './index.css';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from '../src/store/store';
 import App from './containers/App';
 import 'tachyons';
-// import registerServiceWorker from './registerServiceWorker';
 
+const rootElement = document.getElementById('root');
 
-
-const root = createRoot(document.getElementById('root'));
-root.render(<App />);
-
-
-// ReactDOM.render(<App />, document.getElementById('root'));
-// registerServiceWorker();
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  rootElement
+);
